@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<title>登陆界面</title>
+	</head>
+	<body>
+
+		<table width="916" height="800" border="12" bordercolor="#FFFFFF">
+
+			<tr>
+				<td height="" colspan="2">
+
+					<center>
+						<h2>欢迎使用python 测试系统</h2>
+					</center>
+					<br>
+					<br>
+					<hr>
+
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" height="90%">
+
+					<pre><font size=4>
+     
+     请输入正确的用户名和密码
+ 进行登录。 您还可以点击“返
+ 回注册”进入到注 册界面……
+					</font></pre>
+
+
+				</td>
+				<td width="">
+					<div align="center">
+			{% if messages %}
+			<ul>
+				{% for message in messages %}
+				<li>
+					{{ message }}
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+
+<br><br>
+					<center><font color=red><h2>用户登陆</h2></font></center><br><br>
+
+			<form action="" method="post">
+				{% csrf_token %}
+				<table border="0" cellpadding="0">
+					{{form.as_table}}
+				</table>
+				<p>
+					<input type="button" value="返回首页" onclick="location.href='{%url index%}'"/>
+					
+					<input type="button" value="返回注册" onclick="location.href='{%url register%}'"/>
+					
+					<input type="submit" value="登录" />
+				</p>
+			</form>
+		</div>
+
+
+
+				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	</body>
+</html>
+

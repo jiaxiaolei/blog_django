@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<title>修改密码</title>
+	</head>
+	<body>
+
+
+		<table width="916" height="800" border="6" bordercolor="#FFFFFF">
+			<tr>
+				<td height="" colspan="2">
+
+					<center>
+						<h2>欢迎使用python 测试系统</h2>
+					</center>
+					<br>
+					<br>
+					<hr>
+
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" height="90%">
+
+					<a href="{%url pwdupdate%}">修改密码</a>
+					<br>
+					<br>
+					<a href="{%url piclist%}">图片列表</a>
+					<br>
+					<br>
+					<a href="{%url picupload%}">上传图片</a>
+					<br>
+					<br>
+					<a href="{%url index%}">返回首页</a>
+					<br>
+					<br>
+					<a href="{%url help%}">查看帮助</a>
+					<br>
+					<br>
+					<a href="{%url userlist%}">成员列表</a>
+					<br>
+					<br>
+					<a href="{%url logout%}">注销</a>
+					<br>
+					<br>
+
+
+				</td>
+				<td width="">
+					<br><br>
+					<font color=red><h2>请输入新的密码</h2></font><br><br>
+
+
+			{% if messages %}
+			<ul>
+				{% for message in messages %}
+				<li>
+					{{ message }}
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+						
+						<font color=red>{{ message}}</font>
+					<form action="" method="post">
+						{% csrf_token %}
+						<table border="0" cellpadding="0">
+							{{form.as_table}}
+						</table>
+
+
+						<br>
+						<br>
+						<br>
+						<input type="submit" value="提交">
+
+
+
+					</form>
+				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+	</body>
+</html>
+

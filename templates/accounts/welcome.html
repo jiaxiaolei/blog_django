@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<title>欢迎使用python测试系统(首页)！</title>
+	</head>
+	<body>
+		<div align="center">
+			<h2>
+				{{w}}
+			</h2>
+		</div>
+		<br>
+		<br>
+		<br>
+		<hr />
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+				{{ message }}
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<p>
+			{%if request.user.is_authenticated%}
+
+
+
+
+
+			<table width="600" height="600">
+			<tr>
+			<td width="200">
+
+			<a href="{%url pwdupdate%}">修改密码</a>
+			<br>
+			<br>
+			<a href="{%url piclist%}">图片列表</a>
+			<br>
+			<br>
+			<a href="{%url picupload%}">上传图片</a>
+			<br>
+			<br>
+			<a href="{%url userlist%}">成员列表</a>
+			<br>
+			<br>
+			<a href="{%url help%}">查看帮助</a>
+			<br>
+			<br>
+			<a href="{%url index%}">返回首页</a>
+			<br>
+			<br>
+			<a href="{%url logout%}">注销</a> 
+			
+			
+			</td>
+		        <td width="40%" height="90%"> 
+			<pre><font size=4>
+     欢迎使用python 测试系统，
+ 当前，python 已成为最流行的程序
+ 设计语言之一。python 具有内置
+ 的高级数据结构和简单有效的面向对
+ 象机制……
+</font></pre>
+			</td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+			{%else%}
+
+
+			<table width="600" height="600">
+                        <tr>
+			<td width="400">
+
+			<br>
+			<br>
+			<br>
+			<br>
+		        <div align="left">
+			<a href="{%url login%}">进入登陆界面</a> &nbsp;
+			<br>
+			<br>
+			<br>
+			<a href="{%url register%}">进入注册界面</a> 
+                        </div>
+    
+			</td>
+		        <td width="200"> 
+<pre><font size=4>
+     欢迎使用python 测试系统，
+ 当前，python 已成为最流行的程序
+ 设计语言之一。python 具有内置
+ 的高级数据结构和简单有效的面向对
+ 象机制。……
+</font></pre>
+			</td>
+</tr>
+</table>
+
+
+                       {%endif%}
+		      
+		</p>
+	</body>
+</html>
+
+
+
+
+

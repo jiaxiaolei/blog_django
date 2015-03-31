@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<title>图片列表</title>
+	</head>
+	<body>
+
+		<table width="916" height="800" border="12" bordercolor="#FFFFFF">
+			<tr>
+				<td height="" colspan="2">
+					<center>
+						<h2>
+							<h2>欢迎使用python 测试系统</h2>
+						</h2>
+					</center>
+					<br>
+					<br>
+					<hr>
+
+				</td>
+
+			</tr>
+
+
+			<tr>
+
+				<td width="40%" height="90%">
+
+					<a href="{%url pwdupdate%}">修改密码</a>
+					<br>
+					<br>
+					<a href="{%url piclist%}">图片列表</a>
+					<br>
+					<br>
+					<a href="{%url picupload%}">上传图片</a>
+					<br>
+					<br>
+					<a href="{%url index%}">返回首页</a>
+					<br>
+					<br>
+					<a href="{%url help%}">查看帮助</a>
+					<br>
+					<br>
+					<a href="{%url userlist%}">成员列表</a>
+					<br>
+					<br>
+					<a href="{%url logout%}">注销</a>
+					<br>
+					<br>
+
+				</td>
+
+
+
+				<td width="">
+<br><br>
+					<font color=red><h2>图片列表</h2></font><br><br>
+
+
+
+					
+
+    				<div align="right">
+				{% if info %} 
+				<table>
+   					<tr align=center>
+                                            {% for book in picList.object_list %}
+                                            <td> 
+                                                  <img src="{{ book.path }}" alt="" height=100 width=150/><br>
+                                                  上传人姓名：{{ book.username }}<br>
+                                                  上传时间：{{ book.time }}
+                                           </td>
+                                          {% endfor %} 
+                                       </tr>
+                               </table>
+                               {% else %}   
+                                       <p>对不起没有图片!</p>   
+                               {% endif %}
+                               <hr>
+                              {% if picList.has_previous %}
+                                   <a href="?page={{ picList.previous_page_number }}" title="上一页">上一页</a>&nbsp;
+                              {% endif %}
+                              {% for p in page_range %}
+                              {% ifequal p picList.number %}
+                              <span>{{p}}</span>
+                              {% else %}
+                              <a href="?page={{p}}" title="第{{p}}页">{{p}}</a>
+                              {% endifequal %}
+                              {% endfor %}
+                              &nbsp;
+                              {% if picList.has_next %}
+                              <a href="?page={{ picList.next_page_number }}" title="下一页">下一页</a>&nbsp;
+                               {% endif %}
+
+
+</div>
+
+
+
+				</td>
+			</tr>
+		</table>
+
+
+
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
